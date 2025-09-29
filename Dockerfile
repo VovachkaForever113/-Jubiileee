@@ -1,11 +1,10 @@
-# Используем образ Nginx
 FROM nginx:alpine
 
 # Чистим стандартный html
 RUN rm -rf /usr/share/nginx/html/*
 
-# Копируем папку с сайтом (правильное имя!)
+# Копируем сайт
 COPY jubileee/ /usr/share/nginx/html/
 
-# Копируем конфиг Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+# Копируем конфиг сервера в conf.d
+COPY nginx.conf /etc/nginx/conf.d/default.conf
