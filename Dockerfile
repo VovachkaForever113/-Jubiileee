@@ -1,13 +1,11 @@
+# Используем образ Nginx
 FROM nginx:alpine
 
-# Удаляем дефолтные файлы nginx
+# Чистим стандартный html
 RUN rm -rf /usr/share/nginx/html/*
 
-# Копируем содержимое папки с сайтом
+# Копируем содержимое папки с сайтом (обязательно правильное имя!)
 COPY jubiileee/ /usr/share/nginx/html/
 
-# Копируем наш конфиг
+# Копируем конфиг
 COPY nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
