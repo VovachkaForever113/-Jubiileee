@@ -8,3 +8,4 @@ COPY jubileee/ /usr/share/nginx/html/
 
 # Копируем конфиг
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
