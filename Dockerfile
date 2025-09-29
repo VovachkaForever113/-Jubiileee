@@ -6,5 +6,5 @@ RUN rm -rf /usr/share/nginx/html/*
 # Копируем сайт
 COPY jubileee/ /usr/share/nginx/html/
 
-# Копируем конфиг сервера в conf.d
+# Копируем наш конфиг в conf.d
 COPY nginx.conf /etc/nginx/conf.d/default.conf
