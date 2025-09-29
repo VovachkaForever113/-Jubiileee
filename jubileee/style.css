@@ -1,0 +1,117 @@
+/* Общие настройки */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #e0f0ff; /* светлый фон страницы */
+}
+
+/* Хедер с градиентным фоном и узорами */
+header {
+  background: linear-gradient(to bottom, #3a6fb0, #1e3f7a);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Название салона */
+header h1 {
+  font-family: 'Segoe Script', cursive;
+  font-size: 48px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  padding: 5px 0;
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+/* Линия снизу */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: #ffda44;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* При наведении */
+nav a:hover {
+  color: #ffda44;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Активный пункт сразу подсвечен */
+nav a.active {
+  color: #ffda44;
+}
+nav a.active::after {
+  width: 100%;
+}
+
+/* Кнопки записи */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #ffda44;
+  color: #1e3f7a;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ffc107;
+  color: #0d2c5a;
+}
+
+/* Секции */
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 32px;
+  color: #1e3f7a;
+  margin-bottom: 20px;
+}
+
+section p, section li {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Футер */
+footer {
+  background-color: #1e3f7a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+}
+/* Подсветка текущей страницы */
+nav a.active {
+  text-decoration: underline;
+  color: #ffda44; /* яркий цвет для активного раздела */
+}

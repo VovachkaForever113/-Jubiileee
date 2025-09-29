@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запись — Юбилейная</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("D9pZFxBiGxp9HlrXtLZ3_"); })(); // Вставь свой User ID
+  </script>
+</head>
+<body>
+<header>
+  <h1>Онлайн-запись</h1>
+  <nav>
+    <a href="index.html" class="btn-nav">Главная</a>
+    <a href="services.html" class="btn-nav">Услуги</a>
+    <a href="masters.html" class="btn-nav">Мастера</a>
+    <a href="gallery.html" class="btn-nav">Галерея</a>
+    <a href="booking.html" class="btn-nav active">Запись</a>
+    <a href="contacts.html" class="btn-nav">Контакты</a>
+  </nav>
+</header>
+
+<section class="booking">
+  <form id="bookingForm">
+    <label>Имя:</label>
+    <input type="text" name="name" required>
+
+    <label>Телефон:</label>
+    <input type="tel" name="phone" required>
+
+    <label>Выбор мастера:</label>
+    <select name="master" required>
+      <option value="Мастер 1">Мастер 1</option>
+      <option value="Мастер 2">Мастер 2</option>
+    </select>
+
+    <label>Выбор услуги:</label>
+    <select name="service" required>
+      <option value="Стрижка">Стрижка — 500 ₽</option>
+      <option value="Окрашивание">Окрашивание — 1200 ₽</option>
+      <option value="Укладка">Укладка — 700 ₽</option>
+      <option value="Маникюр">Маникюр — 600 ₽</option>
+    </select>
+
+    <label>Дата:</label>
+    <input type="date" name="date" required>
+
+    <label>Время:</label>
+    <input type="time" name="time" required>
+
+    <label>Комментарий:</label>
+    <textarea name="comment"></textarea>
+
+    <button type="submit">Записаться</button>
+  </form>
+
+  <p>После отправки формы администратор получит уведомление, а вам придёт инструкция по оплате.</p>
+</section>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const form = this;
+    const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        master: form.master.value,
+        service: form.service.value,
+        date: form.date.value,
+        time: form.time.value,
+        comment: form.comment.value
+    };
+
+    // Отправка email через EmailJS
+    emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", data)
+        .then(() => {
+            alert("Запись успешно отправлена!\nАдминистратор получит данные, оплату можно произвести наличными или через СберБанк Онлайн.");
+            form.reset();
+        })
+        .catch((err) => {
+            alert("Ошибка при отправке. Попробуйте позже.");
+            console.error(err);
+        });
+});
+</script>
+</body>
+</html>
