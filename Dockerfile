@@ -4,8 +4,8 @@ FROM nginx:alpine
 # Чистим стандартный html
 RUN rm -rf /usr/share/nginx/html/*
 
-# Копируем содержимое папки с сайтом (имя папки точно совпадает!)
+# Копируем папку с сайтом (правильное имя!)
 COPY jubileee/ /usr/share/nginx/html/
 
-# Копируем конфиг
+# Копируем конфиг Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
